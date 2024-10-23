@@ -1,6 +1,7 @@
+import PropTypes from "prop-types";
 import { useEffect, useState } from "react";
 
-const Recipes = () => {
+const Recipes = ({ addRecipeToQueue }) => {
   const [recipes, setRecipes] = useState([]);
 
   useEffect(() => {
@@ -15,7 +16,7 @@ const Recipes = () => {
         {recipes.map((recipe) => (
           <div
             key={recipe.recipe_id}
-            className="card card-compact bg-base-100 shadow-xl"
+            className="card card-compact bg-base-100 border shadow-xl"
           >
             <figure className="px-8 pt-6">
               <img
@@ -24,11 +25,11 @@ const Recipes = () => {
                 alt="Recipe Image"
               />
             </figure>
-            <div className="card-body">
-              <h2 className="card-title text-lg text-gray-800 font-medium ">
+            <div className="card-body space-y-4">
+              <h2 className="card-title text-2xl text-gray-800 font-bold ">
                 {recipe.recipe_name}
               </h2>
-              <p className="text-gray-600 text-base">
+              <p className="text-gray-600 text-xl">
                 {recipe.short_description}
               </p>
               <hr />
@@ -37,13 +38,29 @@ const Recipes = () => {
               </h3>
               <ul className="ml-5">
                 {recipe.ingredients.map((item, index) => (
-                  <li className="list-disc" key={index}>
+                  <li className="list-disc text-lg" key={index}>
                     {item}
                   </li>
                 ))}
               </ul>
-              <div className="card-actions justify-end">
-                <button className="btn btn-primary">Buy Now</button>
+              <hr />
+              <div className="flex gap-4 justify-between">
+                <div className="flex items-center gap-2">
+                  <i className="fa-regular fa-clock"></i>
+                  <p>{recipe.preparing_time}</p>
+                </div>
+                <div className="flex items-center gap-2 ml-4">
+                  <i className="fa-solid fa-fire-flame-curved"></i>
+                  <p>{recipe.calories}</p>
+                </div>
+              </div>
+              <div className="card-actions justify-start">
+                <button
+                  onClick={() => addRecipeToQueue(recipe)}
+                  className="btn bg-green-400 text-gray-600 rounded-full border-none font-bold "
+                >
+                  Want to Cook
+                </button>
               </div>
             </div>
           </div>
@@ -53,4 +70,7 @@ const Recipes = () => {
   );
 };
 
+Recipes.propTypes = {
+  addRecipeToQueue: PropTypes.array,
+};
 export default Recipes;
