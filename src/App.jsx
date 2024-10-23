@@ -1,6 +1,8 @@
 import Banner from "./Components/Banner";
 import Header from "./Components/Header";
 import OurRecipes from "./Components/OurRecipes";
+import Recipes from "./Components/Recipes";
+import Sidebar from "./Components/sidebar";
 
 const App = () => {
   return (
@@ -11,6 +13,13 @@ const App = () => {
       <Banner></Banner>
       {/* Our Recipes section  */}
       <OurRecipes></OurRecipes>
+      {/* recipe card section  */}
+      <section className="flex flex-col md:flex-row gap-6">
+        {/* cards sections  */}
+        <Recipes></Recipes>
+        {/* sidebar */}
+        <Sidebar></Sidebar>
+      </section>
     </div>
   );
 };
