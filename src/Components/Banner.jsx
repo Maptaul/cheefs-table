@@ -17,7 +17,7 @@ const Banner = () => {
           <button className="btn bg-green-400 rounded-full border-none">
             <a href="">Explore Now</a>
           </button>
-          <button className="btn btn-outline text-white hover:bg-green-400 rounded-full border-none">
+          <button className="btn btn-outline border text-white hover:bg-green-400 rounded-full border-none">
             <a href="">Our Feedback</a>
           </button>
         </div>
