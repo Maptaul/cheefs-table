@@ -38,11 +38,11 @@ const Sidebar = ({
                   <td>
                     <button
                       onClick={() => {
-                        handleRemove(recipe.recipe_id);
-                        calculateTimeAndCalories(
-                          recipe.preparing_time,
-                          recipe.calories
-                        );
+                        handleRemove(recipe.recipe_id),
+                          calculateTimeAndCalories(
+                            recipe.preparing_time,
+                            recipe.calories
+                          );
                       }}
                       className="btn bg-green-400 text-gray-600 rounded-full px-2 py-1 md:px-4 md:py-2 my-2 text-xl font-normal"
                     >
@@ -82,7 +82,7 @@ const Sidebar = ({
                   <td>{recipe.calories}</td>
                 </tr>
               ))}
-              <tr className="hover">
+              <tr className="border-none">
                 <th></th>
                 <td></td>
                 <td> Total Time={totalTime}</td>

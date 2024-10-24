@@ -25,9 +25,7 @@ const App = () => {
 
   const handleRemove = (id) => {
     // find which recipe to remove
-
     const deletedRecipe = recipeQueue.find((recipe) => recipe.recipe_id === id);
-
     // remove to want to cook table
     const updatedQueue = recipeQueue.filter(
       (recipe) => recipe.recipe_id !== id
